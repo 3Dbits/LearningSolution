@@ -16,10 +16,10 @@ static void Menu()
 
 static void StartMenu()
 {
-    Console.WriteLine("\nEnter number:");
+    Console.WriteLine("\nEnter number from a list:");
     foreach (var e in Enum.GetValues(typeof(MenuList)))
     {
-        Console.WriteLine($"{(int)e}. {e}");
+        Console.WriteLine($"{e:D}. {e}");
     }
 }
 
@@ -45,15 +45,12 @@ static bool ReadMenuInput()
                 break;
             case (int)MenuList.Exit:
                 return false;
-            default:
-                return false;
-
         };
 
         return true;
     }
         
-    return false;
+    return true;
 }
 
 static void OopExample()

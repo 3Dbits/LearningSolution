@@ -9,9 +9,9 @@ namespace ExampleOfCS.EnumExamples
     internal enum MenuList : int
     {
         OOP = 1,
-        Inheritance = 2,
-        Generic = 3,
-        Enum = 4,
-        Exit = 5,
+        Inheritance,
+        Generic,
+        Enum,
+        Exit,
     }
 }
