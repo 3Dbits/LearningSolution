@@ -1,0 +1,15 @@
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\bin\Debug\net6.0\ExampleOfCS.exe
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\bin\Debug\net6.0\ExampleOfCS.deps.json
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\bin\Debug\net6.0\ExampleOfCS.runtimeconfig.json
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\bin\Debug\net6.0\ExampleOfCS.dll
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\bin\Debug\net6.0\ExampleOfCS.pdb
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\ExampleOfCS.csproj.AssemblyReference.cache
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\ExampleOfCS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\ExampleOfCS.AssemblyInfoInputs.cache
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\ExampleOfCS.AssemblyInfo.cs
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\ExampleOfCS.csproj.CoreCompileInputs.cache
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\ExampleOfCS.dll
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\refint\ExampleOfCS.dll
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\ExampleOfCS.pdb
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\ExampleOfCS.genruntimeconfig.cache
+C:\Users\mcvetan1\source\repos\LearningSolution\ExampleOfCS\obj\Debug\net6.0\ref\ExampleOfCS.dll
