@@ -13,7 +13,6 @@
     <Folder Include="ExtensionMetExamples\" />
     <Folder Include="LinqExamples\" />
     <Folder Include="AsyncExamples\" />
-    <Folder Include="AbstractExamples\" />
   </ItemGroup>
 
 </Project>

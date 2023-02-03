@@ -1,4 +1,5 @@
-﻿using ExampleOfCS.EnumExamples;
+﻿using ExampleOfCS.AbstractExamples;
+using ExampleOfCS.EnumExamples;
 using ExampleOfCS.GenericExamples;
 using ExampleOfCS.InheritanceExamples;
 using ExampleOfCS.OopExamples;
@@ -11,7 +12,7 @@ static void Menu()
     {
         StartMenu();
     } while (ReadMenuInput());
-    
+
 }
 
 static void StartMenu()
@@ -27,7 +28,7 @@ static bool ReadMenuInput()
 {
     var input = Console.ReadLine();
 
-    if(Int32.TryParse(input, out int choice))
+    if (Int32.TryParse(input, out int choice))
     {
         switch (choice)
         {
@@ -43,13 +44,15 @@ static bool ReadMenuInput()
             case (int)MenuList.Enum:
                 Console.WriteLine("This menu is using Enums ^^"); ;
                 break;
+            case (int)MenuList.Abstract:
+                AbstractExample();
+                break;
             case (int)MenuList.Exit:
+                Console.WriteLine("Exiting the application..");
                 return false;
         };
-
-        return true;
     }
-        
+
     return true;
 }
 
@@ -116,4 +119,18 @@ static void GenericExample()
     {
         Console.Write(i + " ");
     }
+}
+
+static void AbstractExample()
+{
+    // High level explanation
+    var o = new DerivedClass();
+    o.AbstractMethod();
+    Console.WriteLine($"x = {o.X}, y = {o.Y}");
+
+    // Example
+    UserInterface userInterface = new UserInterface();
+    userInterface.AddOperation(new PlusOperation());
+
+    userInterface.Start();
 }

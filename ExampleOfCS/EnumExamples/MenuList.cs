@@ -12,6 +12,7 @@ namespace ExampleOfCS.EnumExamples
         Inheritance,
         Generic,
         Enum,
+        Abstract,
         Exit,
     }
 }
