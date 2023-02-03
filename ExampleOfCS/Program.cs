@@ -6,6 +6,7 @@ using ExampleOfCS.OopExamples;
 
 Menu();
 
+#region Menu stuff
 static void Menu()
 {
     do
@@ -55,7 +56,9 @@ static bool ReadMenuInput()
 
     return true;
 }
+#endregion
 
+#region Logic
 static void OopExample()
 {
     // OOP Example
@@ -134,3 +137,4 @@ static void AbstractExample()
 
     userInterface.Start();
 }
+#endregion
