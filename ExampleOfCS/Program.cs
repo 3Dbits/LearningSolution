@@ -1,13 +1,67 @@
-﻿using ExampleOfCS.InheritanceExamples;
+﻿using ExampleOfCS.EnumExamples;
+using ExampleOfCS.GenericExamples;
+using ExampleOfCS.InheritanceExamples;
 using ExampleOfCS.OopExamples;
 
-Console.WriteLine("Hello, World!");
+Menu();
 
-OopExample();
+static void Menu()
+{
+    do
+    {
+        StartMenu();
+    } while (ReadMenuInput());
+    
+}
+
+static void StartMenu()
+{
+    Console.WriteLine("\nEnter number:");
+    foreach (var e in Enum.GetValues(typeof(MenuList)))
+    {
+        Console.WriteLine($"{(int)e}. {e}");
+    }
+}
+
+static bool ReadMenuInput()
+{
+    var input = Console.ReadLine();
+
+    if(Int32.TryParse(input, out int choice))
+    {
+        switch (choice)
+        {
+            case (int)MenuList.OOP:
+                OopExample();
+                break;
+            case (int)MenuList.Inheritance:
+                InheritanceExample();
+                break;
+            case (int)MenuList.Generic:
+                GenericExample();
+                break;
+            case (int)MenuList.Enum:
+                Console.WriteLine("This menu is using Enums ^^"); ;
+                break;
+            case (int)MenuList.Exit:
+                return false;
+            default:
+                return false;
+
+        };
+
+        return true;
+    }
+        
+    return false;
+}
 
 static void OopExample()
 {
     // OOP Example
+    Console.WriteLine("Press enter to start the clock!");
+    Console.ReadLine();
+
     Clock clock = new Clock();
     int count = 0;
 
@@ -18,8 +72,6 @@ static void OopExample()
         count++;
     }
 }
-
-InheritanceExample();
 
 static void InheritanceExample()
 {
@@ -37,3 +89,34 @@ static void InheritanceExample()
     }
 }
 
+static void GenericExample()
+{
+    // Generic Exaple with int
+    GenericList<int> list = new GenericList<int>();
+
+    for (int x = 0; x < 10; x++)
+    {
+        list.AddHead(x);
+    }
+
+    foreach (int i in list)
+    {
+        Console.Write(i + " ");
+    }
+
+    Console.WriteLine();
+
+    // Generic Exaple with string
+    GenericList<string> list2 = new GenericList<string>();
+
+    list2.AddHead("A");
+    list2.AddHead("B");
+    list2.AddHead("C");
+    list2.AddHead("D");
+    list2.AddHead("E");
+
+    foreach (var i in list2)
+    {
+        Console.Write(i + " ");
+    }
+}

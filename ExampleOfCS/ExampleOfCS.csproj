@@ -9,12 +9,11 @@
 
   <ItemGroup>
     <Folder Include="InterfaceExamples\" />
-    <Folder Include="EnumExamples\" />
-    <Folder Include="GenericExamples\" />
     <Folder Include="FileExamples\" />
     <Folder Include="ExtensionMetExamples\" />
     <Folder Include="LinqExamples\" />
     <Folder Include="AsyncExamples\" />
+    <Folder Include="AbstractExamples\" />
   </ItemGroup>
 
 </Project>
