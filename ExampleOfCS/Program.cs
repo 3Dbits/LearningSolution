@@ -7,6 +7,7 @@ using ExampleOfCS.LinqExamples;
 using ExampleOfCS.OopExamples;
 using System.Diagnostics.Metrics;
 using System;
+using ExampleOfCS.FileExamples;
 
 Menu();
 
@@ -58,6 +59,9 @@ static bool ReadMenuInput()
                 return false;
             case (int)MenuList.Linq:
                 LinqExample();
+                break;
+            case (int)MenuList.Files:
+                FileExamples();
                 break;
         };
     }
@@ -163,6 +167,48 @@ static void LinqExample()
     ProgramForStudents objectAndLinq = new();
     Console.WriteLine("Query over object list =>");
     objectAndLinq.StartProgram();
+}
+
+static void FileExamples()
+{
+    FileCreate fileCreate = new FileCreate();
+
+
+    Console.WriteLine("1.Create a Folder/File\n2.Write into a file\n3.Read from a file");
+
+    var input = Console.ReadLine();
+
+    if (int.TryParse(input, out int choice))
+    {
+        switch (choice)
+        {
+            case 1:
+                Console.WriteLine("Enter a folder name: ");
+                fileCreate.Folder = Console.ReadLine();
+                fileCreate.CreateDir();
+
+                Console.WriteLine("Enter a file name");
+                fileCreate.FileName = Console.ReadLine();
+
+                Console.WriteLine("Enter a extension without dot (.): ");
+                fileCreate.FileExt = Console.ReadLine();
+
+                fileCreate.CreateFile();
+                break;
+
+            case 2:
+                fileCreate.WriteToAFile();
+                break;
+
+            case 3:
+                fileCreate.ReadFromAFile();
+                break;
+
+            default:
+                Console.WriteLine("Enter a valid input!");
+                break;
+        }
+    }
 }
 
 #endregion
