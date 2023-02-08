@@ -11,7 +11,6 @@
     <Folder Include="InterfaceExamples\" />
     <Folder Include="FileExamples\" />
     <Folder Include="ExtensionMetExamples\" />
-    <Folder Include="LinqExamples\" />
     <Folder Include="AsyncExamples\" />
   </ItemGroup>
 

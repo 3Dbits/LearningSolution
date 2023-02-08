@@ -2,6 +2,7 @@
 using ExampleOfCS.EnumExamples;
 using ExampleOfCS.GenericExamples;
 using ExampleOfCS.InheritanceExamples;
+using ExampleOfCS.LinqExamples;
 using ExampleOfCS.OopExamples;
 
 Menu();
@@ -19,9 +20,10 @@ static void Menu()
 static void StartMenu()
 {
     Console.WriteLine("\nEnter number from a list:");
-    foreach (var e in Enum.GetValues(typeof(MenuList)))
+
+    for (int i = 1; i <= (int)MenuList.Exit; i++)
     {
-        Console.WriteLine($"{e:D}. {e}");
+        Console.WriteLine($"[{i}] {((MenuList)i).GetEnumDescription()}");
     }
 }
 
@@ -51,6 +53,12 @@ static bool ReadMenuInput()
             case (int)MenuList.Exit:
                 Console.WriteLine("Exiting the application..");
                 return false;
+            case (int)MenuList.Linq:
+                LinqExample();
+                break;
+            default:
+                Console.WriteLine("Enter a valid input!");
+                break;
         };
     }
 
@@ -136,5 +144,16 @@ static void AbstractExample()
     userInterface.AddOperation(new PlusOperation());
 
     userInterface.Start();
+}
+
+static void LinqExample()
+{
+    LinqQueries queries = new();
+    Console.WriteLine("Basic LINQ query =>");
+    queries.QueryExamples();
+
+    ProgramForStudents objectAndLinq = new();
+    Console.WriteLine("Query over object list =>");
+    objectAndLinq.StartProgram();
 }
 #endregion
