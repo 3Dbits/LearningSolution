@@ -17,7 +17,7 @@ namespace ExampleOfCS.InheritanceExamples
 
         public override string ToString()
         {
-            return $"{base.ToString()} color: {color}";
+            return $"{ base.ToString() } color: { color }";
         }
     }
 }

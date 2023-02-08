@@ -36,7 +36,7 @@ namespace ExampleOfCS.OopExamples
 
         public override string ToString()
         {
-            return $"{hours}:{minutes}:{seconds}";
+            return $"{ hours }:{ minutes }:{ seconds }";
         }
     }
 }

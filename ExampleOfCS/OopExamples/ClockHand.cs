@@ -29,12 +29,8 @@ namespace ExampleOfCS.OopExamples
 
         public override string ToString()
         {
-            if (this.Value < 10)
-            {
-                return $"0{this.Value}";
-            }
-
-            return $"{this.Value}";
+            return this.Value < 10 ? 
+                $"0{ this.Value }" : $"{ this.Value }";
         }
     }
 }

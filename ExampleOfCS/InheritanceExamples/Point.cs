@@ -22,14 +22,14 @@ namespace ExampleOfCS.InheritanceExamples
             return Math.Abs(x) + Math.Abs(y);
         }
 
-        protected String Location()
+        protected string Location()
         {
             return $"{x}, {y}";
         }
 
         public override string ToString()
         {
-            return $"({this.Location()}) distance {this.ManhattanDistanceFromOrigin()}";
+            return $"({ this.Location() }) distance { this.ManhattanDistanceFromOrigin() }";
         }
     }
 }

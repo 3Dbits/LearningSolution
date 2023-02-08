@@ -28,7 +28,7 @@ namespace ExampleOfCS.AbstractExamples
                 PrintOperations();
                 Console.WriteLine("Choice: ");
 
-                String choice = Console.ReadLine();
+                string choice = Console.ReadLine();
                 if (choice.Equals("0"))
                 {
                     break;
@@ -43,20 +43,18 @@ namespace ExampleOfCS.AbstractExamples
         {
             Console.WriteLine("\t0: Stop");
             int i = 0;
-            while (i < this.operations.Count())
-            {
-                String operationName = this.operations[i].Name;
-                Console.WriteLine("\t" + (i + 1) + ": " + operationName);
+
+            this.operations.ForEach(operation => {
+                Console.WriteLine($"\t{ i + 1 }: { operation.Name }");
                 i += 1;
-            }
+            });
         }
 
         private void ExecuteOperation(String choice)
         {
             int operation = Int32.Parse(choice);
 
-            Operation chosen = this.operations[operation - 1];
-            chosen.Execute();
+            this.operations[operation - 1].Execute();
         }
     }
 }

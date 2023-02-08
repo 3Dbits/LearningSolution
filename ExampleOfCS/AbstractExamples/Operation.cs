@@ -8,10 +8,9 @@ namespace ExampleOfCS.AbstractExamples
 {
     internal abstract class Operation
     {
-
         public String Name { get; }
 
-        public Operation(String name)
+        public Operation(string name)
         {
             this.Name = name;
         }

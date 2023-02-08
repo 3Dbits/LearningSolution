@@ -17,7 +17,7 @@ namespace ExampleOfCS.InheritanceExamples
 
         private new string Location()
         {
-            return $"{base.Location()}, {z}";
+            return $"{ base.Location() }, { z }";
         }
 
         public new int ManhattanDistanceFromOrigin()
@@ -27,7 +27,7 @@ namespace ExampleOfCS.InheritanceExamples
 
         public override string ToString()
         {
-            return $"({this.Location()}) distance {this.ManhattanDistanceFromOrigin()}";
+            return $"({ this.Location() }) distance { this.ManhattanDistanceFromOrigin() }";
         }
     }
 }

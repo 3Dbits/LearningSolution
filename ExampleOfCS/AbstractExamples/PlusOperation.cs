@@ -18,7 +18,7 @@ namespace ExampleOfCS.AbstractExamples
             Console.WriteLine("Second number: ");
             int second = Int32.Parse(Console.ReadLine());
 
-            Console.WriteLine($"The sum of the numbers is {first + second}");
+            Console.WriteLine($"The sum of the numbers is { first + second }");
         }
     }
 }
