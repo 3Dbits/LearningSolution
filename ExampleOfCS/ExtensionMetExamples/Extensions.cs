@@ -5,8 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using ExampleOfCS.EnumExamples;
 
-namespace ExampleOfCS.EnumExamples
+namespace ExampleOfCS.ExtensionMetExamples
 {
     public static class Extensions
     {

@@ -1,9 +1,12 @@
 ﻿using ExampleOfCS.AbstractExamples;
 using ExampleOfCS.EnumExamples;
+using ExampleOfCS.ExtensionMetExamples;
 using ExampleOfCS.GenericExamples;
 using ExampleOfCS.InheritanceExamples;
 using ExampleOfCS.LinqExamples;
 using ExampleOfCS.OopExamples;
+using System.Diagnostics.Metrics;
+using System;
 
 Menu();
 
@@ -56,17 +59,18 @@ static bool ReadMenuInput()
             case (int)MenuList.Linq:
                 LinqExample();
                 break;
-            default:
-                Console.WriteLine("Enter a valid input!");
-                break;
         };
     }
-
+    if(choice <= 0 || choice > (int)MenuList.Exit)
+    {
+        Console.WriteLine("Enter a valid input!");
+    }
     return true;
 }
 #endregion
 
 #region Logic
+
 static void OopExample()
 {
     // OOP Example
@@ -103,33 +107,37 @@ static void InheritanceExample()
 static void GenericExample()
 {
     // Generic Exaple with int
-    GenericList<int> list = new GenericList<int>();
+    GenericList<int> list = new();
 
     for (int x = 0; x < 10; x++)
     {
         list.AddHead(x);
     }
 
+    Console.WriteLine("Use generic metode to print integers =>");
     foreach (int i in list)
     {
-        Console.Write(i + " ");
+        Console.Write($"{i} ");
     }
 
     Console.WriteLine();
 
     // Generic Exaple with string
-    GenericList<string> list2 = new GenericList<string>();
+    GenericList<string> list2 = new();
 
-    list2.AddHead("A");
+    list2.AddHead("AA");
     list2.AddHead("B");
-    list2.AddHead("C");
+    list2.AddHead("CC");
     list2.AddHead("D");
-    list2.AddHead("E");
+    list2.AddHead("EE");
 
+    Console.WriteLine("Use generic metode to print strings =>");
     foreach (var i in list2)
     {
-        Console.Write(i + " ");
+        Console.Write($"{ i } ");
     }
+
+    Console.WriteLine();
 }
 
 static void AbstractExample()
@@ -137,7 +145,7 @@ static void AbstractExample()
     // High level explanation
     var o = new DerivedClass();
     o.AbstractMethod();
-    Console.WriteLine($"x = {o.X}, y = {o.Y}");
+    Console.WriteLine($"x = { o.X }, y = { o.Y }");
 
     // Example
     UserInterface userInterface = new UserInterface();
@@ -156,4 +164,5 @@ static void LinqExample()
     Console.WriteLine("Query over object list =>");
     objectAndLinq.StartProgram();
 }
+
 #endregion
