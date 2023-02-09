@@ -7,17 +7,17 @@ using ExampleOfCS.LinqExamples;
 using ExampleOfCS.OopExamples;
 using System.Diagnostics.Metrics;
 using System;
+using ExampleOfCS.FileExamples;
+using ExampleOfCS.InterfaceExamples;
 
 Menu();
 
 #region Menu stuff
 static void Menu()
 {
-    do
     {
         StartMenu();
-    } while (ReadMenuInput());
-
+    } while (ReadMenuInput()); 
 }
 
 static void StartMenu()
@@ -58,6 +58,12 @@ static bool ReadMenuInput()
                 return false;
             case (int)MenuList.Linq:
                 LinqExample();
+                break;
+            case (int)MenuList.Files:
+                FileExamples();
+                break;
+            case (int)MenuList.Interface:
+                InterfaceExamples();
                 break;
         };
     }
@@ -170,6 +176,58 @@ static void LinqExample()
     ProgramForStudents objectAndLinq = new();
     Console.WriteLine("Query over object list =>");
     objectAndLinq.StartProgram();
+}
+
+static void FileExamples()
+{
+    FileCreate fileCreate = new FileCreate();
+
+    Console.WriteLine("1.Create a Folder/File\n2.Write into a file\n3.Read from a file");
+
+    var input = Console.ReadLine();
+
+    if (int.TryParse(input, out int choice))
+    {
+        switch (choice)
+        {
+            case 1:
+                Console.WriteLine("Enter a folder name: ");
+                fileCreate.Folder = Console.ReadLine();
+                fileCreate.CreateDir();
+
+                Console.WriteLine("Enter a file name");
+                fileCreate.FileName = Console.ReadLine();
+
+                Console.WriteLine("Enter a extension without dot (.): ");
+                fileCreate.FileExt = Console.ReadLine();
+
+                fileCreate.CreateFile();
+                break;
+
+            case 2:
+                fileCreate.WriteToAFile();
+                break;
+
+            case 3:
+                fileCreate.ReadFromAFile();
+                break;
+
+            default:
+                Console.WriteLine("Enter a valid input!");
+                break;
+        }
+    }
+}
+
+static void InterfaceExamples() 
+{
+    Square square = new(7);
+    Rectangle rectangle = new(5, 3);
+    Triangle triangle = new Triangle(3,3,3);
+
+    Console.WriteLine($"{square.GetColor()} with area: {square.CalculateArea()} cm and perimiter {square.CalculatePerimiter()} cm.");
+    Console.WriteLine($"{rectangle.GetColor()} with area: {rectangle.CalculateArea()} cm and perimiter {rectangle.CalculatePerimiter()} cm.");
+    Console.WriteLine($"{triangle.GetColor()} with area: {triangle.CalculateArea():F1} cm and perimiter {triangle.CalculatePerimiter():F1} cm.");
 }
 
 #endregion

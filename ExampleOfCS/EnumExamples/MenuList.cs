@@ -16,6 +16,8 @@ namespace ExampleOfCS.EnumExamples
         Enum,
         Abstract,
         Linq,
+        Files,
+        Interface,
         Exit,
     }
 }
