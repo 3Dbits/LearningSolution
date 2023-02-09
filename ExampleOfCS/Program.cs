@@ -119,6 +119,13 @@ static void GenericExample()
     {
         Console.Write($"{i} ");
     }
+    Console.WriteLine();
+
+    Console.WriteLine("Same list with indexers:");
+    for(int i = 0; i < 10; i++)
+    {
+        Console.WriteLine($"Index: [{i}] Value: [{list[i]}]");
+    }
 
     Console.WriteLine();
 

@@ -32,6 +32,7 @@ namespace ExampleOfCS.GenericExamples
         }
 
         private Node? head;
+        private T[] obj = new T[100];
 
         public GenericList()
         {
@@ -54,6 +55,12 @@ namespace ExampleOfCS.GenericExamples
                 yield return current.Data;
                 current = current.Next;
             }
+        }
+
+        public T this[int index]
+        {
+            get { return obj[index]; }
+            set { obj[index] = value; }
         }
     }
 }
