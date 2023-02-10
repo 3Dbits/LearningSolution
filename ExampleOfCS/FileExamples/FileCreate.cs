@@ -81,7 +81,7 @@ namespace ExampleOfCS.FileExamples
             Console.WriteLine("Enter a path of a file to read: ");
             var path = Console.ReadLine();
 
-            using (StreamReader streamReader = File.OpenText(path))
+            using ( StreamReader streamReader = File.OpenText(path))
             {
                 string text = "";
 

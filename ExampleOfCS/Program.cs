@@ -182,7 +182,7 @@ static void FileExamples()
 {
     FileCreate fileCreate = new FileCreate();
 
-    Console.WriteLine("1.Create a Folder/File\n2.Write into a file\n3.Read from a file");
+    Console.WriteLine("1.Create a Folder/File\n2.Write into a file\n3.Read from a file\n4.Exit");
 
     var input = Console.ReadLine();
 
@@ -211,12 +211,16 @@ static void FileExamples()
             case 3:
                 fileCreate.ReadFromAFile();
                 break;
-
+            case 4:
+                break;
             default:
                 Console.WriteLine("Enter a valid input!");
                 break;
         }
     }
+
+    var readFiles = new ListCFiles();
+    readFiles.Example();
 }
 
 static void InterfaceExamples() 
