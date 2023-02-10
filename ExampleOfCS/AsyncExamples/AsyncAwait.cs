@@ -15,52 +15,25 @@ namespace ExampleOfCS.AsyncExamples
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
 
-            var task1 = FirstTask();
+            var task1 = RandomTask(1, 5000);
             await task1; //=> usefull in when the other tasks are dependent on the first one
-            var task2 = SecondTask();
-            var task3 = ThirdTask();
+            var task2 = RandomTask(2, 2000);
+            var task3 = RandomTask(3, 4000);
 
-
-            Task.WaitAll(task1, task2, task3);
+            Task.WhenAll(task1, task2, task3);
             watch.Stop();
             Console.WriteLine($"Execution Time:{watch.ElapsedMilliseconds} ms");
-
-
         }
 
-        public async Task FirstTask()
+        public async Task RandomTask(int num, int sleep)
         {
             await Task.Run(() =>
             {
-                Console.WriteLine("Starting Task 1");
-                Thread.Sleep(5000);
-                Console.WriteLine("Finishig Task 1");
+                Console.WriteLine($"Starting Task {num}");
+                Thread.Sleep(sleep);
+                Console.WriteLine($"Finishig Task {num}");
             });
         }
-
-
-        public async Task SecondTask()
-        {
-            await Task.Run(() =>
-            {
-                Console.WriteLine("Starting Task 2");
-                Thread.Sleep(3000);
-                Console.WriteLine("Finishing Task 2");
-            });
-
-
-        }
-
-        public async Task ThirdTask()
-        {
-            await Task.Run(() =>
-            {
-                Console.WriteLine("Starting Task 3");
-                Thread.Sleep(2000);
-                Console.WriteLine("Finishing Task 3");
-            });
-        }
-
     }
 }
 

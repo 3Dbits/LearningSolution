@@ -15,9 +15,9 @@ namespace ExampleOfCS.AsyncExamples
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
 
-            FirstTask();
-            SecondTask();
-            ThirdTask();
+            RandomTask(1, 5000);
+            RandomTask(2, 2000);
+            RandomTask(3, 4000);
             watch.Stop();
 
             Console.WriteLine($"Execution Time:{watch.ElapsedMilliseconds} ms");
@@ -25,31 +25,12 @@ namespace ExampleOfCS.AsyncExamples
 
         }
 
-        public void FirstTask()
+        public void RandomTask(int num, int sleep)
         {
-
-            Console.WriteLine("Starting Task 1, THIS TASK MUST FINISH BEFORE OTHERS HAVE STARTED");
-            Thread.Sleep(5000);
-            Console.WriteLine("Finishig Task 1");
+                Console.WriteLine($"Starting Task {num}");
+                Thread.Sleep(sleep);
+                Console.WriteLine($"Finishig Task {num}");
 
         }
-
-
-        public void SecondTask()
-        {
-
-            Console.WriteLine("Starting Task 2");
-            Thread.Sleep(3000);
-            Console.WriteLine("Finishing Task 2");
-
-        }
-
-        public void ThirdTask()
-        {
-            Console.WriteLine("Starting Task 3");
-            Thread.Sleep(2000);
-            Console.WriteLine("Finishing Task 3");
-        }
-
     }
 }
