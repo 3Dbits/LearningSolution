@@ -15,12 +15,12 @@ namespace ExampleOfCS.AsyncExamples
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
 
-            var task1 = RandomTask(1, 5000);
+            Task task1 = RandomTask(1, 5000);
             await task1; //=> usefull in when the other tasks are dependent on the first one
-            var task2 = RandomTask(2, 2000);
-            var task3 = RandomTask(3, 4000);
+            Task task2 = RandomTask(2, 2000);
+            Task task3 = RandomTask(3, 4000);
 
-            Task.WhenAll(task1, task2, task3);
+            Task.WaitAll(task1, task2, task3);
             watch.Stop();
             Console.WriteLine($"Execution Time:{watch.ElapsedMilliseconds} ms");
         }
