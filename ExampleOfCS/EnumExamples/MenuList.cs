@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExampleOfCS.EnumExamples
 {
-    public enum MenuList : int
+    public enum MenuList
     {
         [Description("Object-oriented programming")]
         OOP = 1,
