@@ -18,6 +18,7 @@ namespace ExampleOfCS.EnumExamples
         Linq,
         Files,
         Interface,
+        AsyncMethods,
         Exit,
     }
 }

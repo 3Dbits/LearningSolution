@@ -9,15 +9,17 @@ using System.Diagnostics.Metrics;
 using System;
 using ExampleOfCS.FileExamples;
 using ExampleOfCS.InterfaceExamples;
+using ExampleOfCS.AsyncExamples;
 
 Menu();
 
 #region Menu stuff
-static void Menu()
+static async void Menu()
 {
-    {
-        StartMenu();
-    } while (ReadMenuInput()); 
+    do
+     {
+         StartMenu();
+     } while (ReadMenuInput());
 }
 
 static void StartMenu()
@@ -64,6 +66,11 @@ static bool ReadMenuInput()
                 break;
             case (int)MenuList.Interface:
                 InterfaceExamples();
+                break;
+            case (int)MenuList.AsyncMethods:
+                AsyncExample();
+                Console.WriteLine("Now Sync Example");
+                SyncExample();
                 break;
         };
     }
@@ -219,6 +226,8 @@ static void FileExamples()
     }
 }
 
+
+
 static void InterfaceExamples() 
 {
     Square square = new(7);
@@ -228,6 +237,30 @@ static void InterfaceExamples()
     Console.WriteLine($"{square.GetColor()} with area: {square.CalculateArea()} cm and perimiter {square.CalculatePerimiter()} cm.");
     Console.WriteLine($"{rectangle.GetColor()} with area: {rectangle.CalculateArea()} cm and perimiter {rectangle.CalculatePerimiter()} cm.");
     Console.WriteLine($"{triangle.GetColor()} with area: {triangle.CalculateArea():F1} cm and perimiter {triangle.CalculatePerimiter():F1} cm.");
+}
+
+static void AsyncExample()
+{
+    AsyncAwait aws = new();
+    aws.RunAsyncTasks();
+
+    Console.WriteLine("The program has Started,input your name while your waiting for your tasks");
+    string input = Console.ReadLine();
+
+    Console.WriteLine($"Hello {input}, please wait while the tasks are finishing");
+    Console.ReadLine();
+}
+
+static void SyncExample()
+{
+    SyncExample aws = new();
+
+    aws.RunTasks();
+    Console.WriteLine("You couldn't input your name while the tasks were running, input your name now");
+    string input = Console.ReadLine();
+
+    Console.WriteLine($"Hello {input}, your tasks have finished, but it took longer");
+    Console.ReadLine();
 }
 
 #endregion
