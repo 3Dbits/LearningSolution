@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO.Enumeration;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace ExampleOfCS.FileExamples
 {
     internal class FileCreate
     {
-        private string FileDir = @"C:\";
+        private readonly string FileDir = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
         public string Folder { get; set; }
         public string FileName { get; set; }
         public string FileExt { get; set; }
@@ -17,10 +17,7 @@ namespace ExampleOfCS.FileExamples
 
         public void CreateDir()
         {
-
-
             string foldername = Path.Combine(FileDir, Folder);
-
 
             if (String.IsNullOrEmpty(foldername) || Directory.Exists(foldername))
             {
@@ -36,7 +33,7 @@ namespace ExampleOfCS.FileExamples
 
         public void CreateFile()
         {
-            var filePath = $@"{FileDir}{Folder}\{FileName}.{FileExt}";
+            var filePath = $@"{FileDir}\{Folder}\{FileName}.{FileExt}";
 
             if (File.Exists(filePath))
             {
@@ -44,9 +41,16 @@ namespace ExampleOfCS.FileExamples
             }
             else
             {
-                using (FileStream fs = File.Create(filePath))
+                try
                 {
-                    Console.WriteLine("File created at path {0}", filePath);
+                    using (FileStream fs = File.Create(filePath))
+                    {
+                        Console.WriteLine("File created at path {0}", filePath);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Exception occured: {e}");
                 }
             }
         }
@@ -66,11 +70,17 @@ namespace ExampleOfCS.FileExamples
                 }
             }
 
-
-            using (StreamWriter stream = File.AppendText(path))
+            try
             {
-                Console.WriteLine("Write into a file: ");
-                stream.WriteLine(Console.ReadLine());
+                using (StreamWriter stream = File.AppendText(path))
+                {
+                    Console.WriteLine("Write into a file: ");
+                    stream.WriteLine(Console.ReadLine());
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Exception occured: {e}");
             }
 
         }
@@ -81,16 +91,23 @@ namespace ExampleOfCS.FileExamples
             Console.WriteLine("Enter a path of a file to read: ");
             var path = Console.ReadLine();
 
-            using ( StreamReader streamReader = File.OpenText(path))
+            try
             {
-                string text = "";
-
-                while ((text = streamReader.ReadLine()) != null)
+                using (StreamReader streamReader = File.OpenText(path))
                 {
-                    Console.WriteLine(text);
+                    string text = "";
+
+                    while ((text = streamReader.ReadLine()) != null)
+                    {
+                        Console.WriteLine(text);
+                    }
                 }
             }
-        }
+            catch (IOException e)
+            {
+                Console.WriteLine($"Exception occured, path is incorrect: {e}");
 
+            }
+        }
     }
 }
