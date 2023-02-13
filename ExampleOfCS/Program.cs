@@ -162,6 +162,9 @@ static void AbstractExample()
     // Example
     UserInterface userInterface = new();
     userInterface.AddOperation(new PlusOperation());
+    userInterface.AddOperation(new MinusOperation());
+    userInterface.AddOperation(new MultiplicationOperation());
+    userInterface.AddOperation(new DivisionOperation());
 
     userInterface.Start();
 }
