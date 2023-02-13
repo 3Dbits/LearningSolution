@@ -28,7 +28,7 @@ static void StartMenu()
 
     for (int i = 1; i <= (int)MenuList.Exit; i++)
     {
-        Console.WriteLine($"[{i}] {((MenuList)i).GetEnumDescription()}");
+        Console.WriteLine($"\t[{ i }] { ((MenuList)i).GetEnumDescription() }");
     }
 }
 
@@ -134,14 +134,6 @@ static void GenericExample()
     }
     Console.WriteLine();
 
-    Console.WriteLine("Same list with indexers:");
-    for(int i = 0; i < 10; i++)
-    {
-        Console.WriteLine($"Index: [{i}] Value: [{list[i]}]");
-    }
-
-    Console.WriteLine();
-
     // Generic Exaple with string
     GenericList<string> list2 = new();
 
@@ -168,7 +160,7 @@ static void AbstractExample()
     Console.WriteLine($"x = { o.X }, y = { o.Y }");
 
     // Example
-    UserInterface userInterface = new UserInterface();
+    UserInterface userInterface = new();
     userInterface.AddOperation(new PlusOperation());
 
     userInterface.Start();
@@ -236,7 +228,7 @@ static void InterfaceExamples()
 {
     Square square = new(7);
     Rectangle rectangle = new(5, 3);
-    Triangle triangle = new Triangle(3,3,3);
+    Triangle triangle = new(3,3,3);
 
     Console.WriteLine($"{square.GetColor()} with area: {square.CalculateArea()} cm and perimiter {square.CalculatePerimiter()} cm.");
     Console.WriteLine($"{rectangle.GetColor()} with area: {rectangle.CalculateArea()} cm and perimiter {rectangle.CalculatePerimiter()} cm.");
