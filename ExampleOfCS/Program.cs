@@ -15,6 +15,7 @@ Menu();
 #region Menu stuff
 static void Menu()
 {
+    do
     {
         StartMenu();
     } while (ReadMenuInput()); 
